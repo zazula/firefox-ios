@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import Shared
+import WebKit
 
 extension BrowserViewController {
     func updateFindInPageVisibility(visible: Bool, tab: Tab? = nil) {
@@ -63,7 +64,19 @@ extension BrowserViewController: FindInPageBarDelegate, FindInPageHelperDelegate
     fileprivate func find(_ text: String, function: String) {
         guard let webView = tabManager.selectedTab?.webView else { return }
         let escaped = text.replacingOccurrences(of: "\\", with: "\\\\").replacingOccurrences(of: "\"", with: "\\\"")
-        webView.evaluateJavaScript("__firefox__.\(function)(\"\(escaped)\")", completionHandler: nil)
+        if #available(iOS 14.0, *) {
+            let configuration = WKFindConfiguration()
+            configuration.caseSensitive = false
+            webView.find(escaped) { result in
+                if result.matchFound {
+                    print("kayla found a match")
+                } else {
+                    print("kayla did not find a match")
+                }
+            }
+        } else {
+            webView.evaluateJavaScript("__firefox__.\(function)(\"\(escaped)\")", completionHandler: nil)
+        }
     }
 
     func findInPageHelper(_ findInPageHelper: FindInPageHelper, didUpdateCurrentResult currentResult: Int) {
