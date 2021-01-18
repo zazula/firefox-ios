@@ -6,7 +6,7 @@ Download on the [App Store](https://itunes.apple.com/app/firefox-web-browser/id9
 This branch (main)
 -----------
 
-This branch only works with [Xcode 11.5](https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_11.5/Xcode_11.5.xip), Swift 5.2 and supports iOS 12.0 and above.
+This branch works with [Xcode 12.1](https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_12.1/Xcode_12.1.xip), Swift 5.2 and supports iOS 12.0 and above.
 
 Please make sure you aim your pull requests in the right direction.
 
@@ -21,11 +21,12 @@ Building the code
 -----------------
 
 1. Install the latest [Xcode developer tools](https://developer.apple.com/xcode/downloads/) from Apple.
-1. Install Carthage and Node
+1. Install Carthage, Node, and a Python 3 virtualenv for localization scripts:
     ```shell
     brew update
     brew install carthage
     brew install node
+    pip3 install virtualenv
     ```
 1. Clone the repository:
     ```shell

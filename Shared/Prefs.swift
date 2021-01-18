@@ -29,6 +29,7 @@ public struct PrefsKeys {
     public static let ShowNewTabToolbarButton = "newTabToolbarButton"
     public static let ContextMenuShowLinkPreviews = "showLinkPreviews"
     public static let NewTabCustomUrlPrefKey = "HomePageURLPref"
+    public static let ChronTabsPrefKey = "chronTabsPrefKey"
     
     //Activity Stream
     public static let KeyTopSitesCacheIsValid = "topSitesCacheIsValid"
@@ -51,6 +52,7 @@ public struct PrefsKeys {
     
     // Widgetkit Key
     public static let WidgetKitSimpleTabKey = "WidgetKitSimpleTabKey"
+    public static let WidgetKitSimpleTopTab = "WidgetKitSimpleTopTab"
 }
 
 public struct PrefsDefaults {
